@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>synthsrc module &mdash; synthsrc 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="synthsrc 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="lfs module" href="lfs.html"/>
+        <link rel="prev" title="catalog module" href="catalog.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> synthsrc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="catalog.html">catalog module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">synthsrc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lfs.html">lfs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attenuation.html">attenuation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">templates module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">synthsrc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>synthsrc module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/source.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-synthsrc.source">
+<span id="synthsrc-module"></span><h1>synthsrc module<a class="headerlink" href="#module-synthsrc.source" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="synthsrc.source.Source">
+<em class="property">class </em><code class="descclassname">synthsrc.source.</code><code class="descname">Source</code><span class="sig-paren">(</span><em>z</em>, <em>LF</em>, <em>wave_array</em>, <em>temp</em>, <em>add_lines</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class to generate the properties and spectrum of a synthetic source.</p>
+<p>The source is randomly assigned a BC03 spectral template
+(<a class="reference internal" href="#synthsrc.source.Source.choose_template" title="synthsrc.source.Source.choose_template"><code class="xref py py-func docutils literal"><span class="pre">choose_template()</span></code></a>) and a luminosity, age, and dust extinction
+(<a class="reference internal" href="#synthsrc.source.Source.generate_properties" title="synthsrc.source.Source.generate_properties"><code class="xref py py-func docutils literal"><span class="pre">generate_properties()</span></code></a>). Emission lines may be added to the
+spectrum (<a class="reference internal" href="#synthsrc.source.Source.add_emission_lines" title="synthsrc.source.Source.add_emission_lines"><code class="xref py py-func docutils literal"><span class="pre">add_emission_lines()</span></code></a>).
+The ISM extinction and IGM attenuation are applied and the spectrum
+is scaled to the assigned luminosity (<a class="reference internal" href="#synthsrc.source.Source.process" title="synthsrc.source.Source.process"><code class="xref py py-func docutils literal"><span class="pre">process()</span></code></a>).</p>
+<p>BC03 Templates are from <a class="reference internal" href="templates.html#synthsrc.templates.Template" title="synthsrc.templates.Template"><code class="xref py py-class docutils literal"><span class="pre">Template</span></code></a>, ISM extincation
+is from <a class="reference internal" href="attenuation.html#synthsrc.attenuation.ISMExtinction" title="synthsrc.attenuation.ISMExtinction"><code class="xref py py-class docutils literal"><span class="pre">ISMExtinction</span></code></a> and IGM attenuation is
+from <a class="reference internal" href="attenuation.html#synthsrc.attenuation.IGMAttenuation" title="synthsrc.attenuation.IGMAttenuation"><code class="xref py py-class docutils literal"><span class="pre">IGMAttenuation</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>z</strong> (<em>float</em>) &#8211; Redshift of source</li>
+<li><strong>LF</strong> (<a class="reference internal" href="lfs.html#synthsrc.lfs.LuminosityFunction" title="synthsrc.lfs.LuminosityFunction"><em>synthsrc.lfs.LuminosityFunction</em></a>) &#8211; Instance of
+<a class="reference internal" href="lfs.html#synthsrc.lfs.LuminosityFunction" title="synthsrc.lfs.LuminosityFunction"><code class="xref py py-class docutils literal"><span class="pre">LuminosityFunction</span></code></a> corresponding to source redshift</li>
+<li><strong>wave_array</strong> (<em>float</em>) &#8211; High-resolution wavelength array used for
+interpolation of the filters and SED</li>
+<li><strong>temp</strong> (<a class="reference internal" href="templates.html#synthsrc.templates.Template" title="synthsrc.templates.Template"><em>synthsrc.templates.Template</em></a>) &#8211; Instance of
+<a class="reference internal" href="templates.html#synthsrc.templates.Template" title="synthsrc.templates.Template"><code class="xref py py-class docutils literal"><span class="pre">Template</span></code></a></li>
+<li><strong>add_lines</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code>, emission lines are added to the
+spectrum using <a class="reference internal" href="#synthsrc.source.Source.add_emission_lines" title="synthsrc.source.Source.add_emission_lines"><code class="xref py py-func docutils literal"><span class="pre">add_emission_lines()</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="synthsrc.source.Source.add_emission_lines">
+<code class="descname">add_emission_lines</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.add_emission_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds emission lines to the synthetic spectrum.</p>
+<p>Emission lines are modeled as Gaussian profiles with FWHM of
+<span class="math">\(\sim 20\unicode{x212B}\)</span>. The <span class="math">\(\mathrm{H}\beta\)</span>
+line luminosity is determined by the flux of hydrogen-ionizing
+photons output by the BC03 models. Emission line coefficients for
+<span class="math">\(\mathrm{H}\alpha\)</span> and <span class="math">\(\mathrm{Ly}\alpha\)</span> are taken
+from Table 1 of <a class="reference external" href="http://adsabs.harvard.edu/abs/2003A%26A...397..527S">Schaerer (2003)</a>.
+All other line ratios, which depend on the model&#8217;s metallicity,
+are taken from <a class="reference external" href="http://adsabs.harvard.edu/abs/2003A%26A...401.1063A">Anders &amp; Fritze-v. Alvensleben (2003)</a> assuming
+an electron density of <span class="math">\(n_e=100 \ \mathrm{cm}^{-3}\)</span>
+and temperature <span class="math">\(T_e = 10000\)</span> K.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in <span class="math">\(\unicode{x212B}\)</span></li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>flux</strong> &#8211; Flux array with emission lines added</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.source.Source.choose_template">
+<code class="descname">choose_template</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.choose_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly chooses a BC03 template.</p>
+<p>Randomly chooses an IMF, metallicity, and SFH for the synthetic
+SED and uses these to construct the template filename that will
+provide the source&#8217;s spectrum. Templates are in
+<code class="docutils literal"><span class="pre">synthsrc/highztemplates</span></code> with the naming convention
+<code class="docutils literal"><span class="pre">[IMF]_[metal]_SFR].fits</span></code>, where</p>
+<ul class="simple">
+<li>IMF is the initial mass function, currently either Salpeter
+or Chabrier;</li>
+<li>metal is the metallicity, ranging from <cite>m22</cite> (<span class="math">\(Z=0.0001\)</span>)
+to <cite>m62</cite> (<span class="math">\(Z=0.02\)</span>, solar);</li>
+<li>SFH is the star formation history, where all options are
+exponentially declining with characteristic timescales of
+<span class="math">\(\tau=0.01\)</span>, <span class="math">\(0.5\)</span>, and <span class="math">\(5\)</span> Gyr.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>template</strong> &#8211; Filename of BC03 template</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.source.Source.find_thing">
+<code class="descname">find_thing</code><span class="sig-paren">(</span><em>array</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.find_thing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array index of the element closest to the given value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.source.Source.generate_properties">
+<code class="descname">generate_properties</code><span class="sig-paren">(</span><em>ebvs</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.generate_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns source a luminosity, age, and dust extinction.</p>
+<p>The source luminosity is randomly pulled from the LF appropriate
+for the source&#8217;s redshift. The inverse cumulative LF (created by
+<code class="xref py py-func docutils literal"><span class="pre">cumulative_lf()</span></code>) is indexed with a
+number from 0 to 1 randomly generated by <code class="xref py py-func docutils literal"><span class="pre">numpy.random.random()</span></code>.</p>
+<p>The age of the source can range from 10 Myr to the age of the
+universe at the source&#8217;s redshift and is pulled randomly from
+those available in the BC03 template.</p>
+<p>There are two possible geometries for dust in the ISM of the
+synthetic galaxy:</p>
+<ol class="arabic simple">
+<li>a uniform slab of dust in front of the source, or</li>
+<li>a clumpy slab in front of an extended source.</li>
+</ol>
+<p>In the first case, extinction follows the classical
+<span class="math">\(I_o/I_i = e^{-\tau_{\lambda}}\)</span>, where <span class="math">\(I_o\)</span> and
+<span class="math">\(I_i\)</span> are the observed and intrinsic intensities,
+respectively. The  <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJ...533..682C">Calzetti et al. (2000)</a> law for
+starburst galaxies is used in this case
+(<code class="xref py py-func docutils literal"><span class="pre">calz()</span></code>).</p>
+<p>For the second geometry, all clumps are assumed to have the same
+optical depth, <span class="math">\(\tau_{c,\lambda}\)</span>, which is pulled
+randomly from <span class="math">\(0.1 \leq \tau_{c,\lambda} \leq 10\)</span>.
+Each clump acts as a uniform dust screen and follows the
+<a class="reference external" href="http://adsabs.harvard.edu/abs/1989ApJ...345..245C">Cardelli, Clayton, and Mathis (1989)</a> extinction
+law (<code class="xref py py-func docutils literal"><span class="pre">ccm()</span></code>). The ISM
+extinction then goes as
+<span class="math">\(I_o/I_i = \mathrm{exp}[-N(1-e^{-\tau_{c,\lambda}})]\)</span>,
+where <span class="math">\(N\)</span> is the average number of clumps along the
+line of sight. (See <a class="reference external" href="http://adsabs.harvard.edu/abs/1984ApJ...287..228N">Natta &amp; Panagia (1984)</a>).
+<span class="math">\(N\)</span> can be 1, 2, 5, or 10 clumps.</p>
+<p>In both cases, the maximum available extinction is restricted
+following <a class="reference external" href="http://adsabs.harvard.edu/abs/2011ApJ...730....8H">Hayes et al. (2011)</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ebvs</strong> (<em>float</em>) &#8211; an array of possible <span class="math">\(E(B-V)\)</span></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.source.Source.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>plotcheck=False</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the template SED of source.</p>
+<p>Applies ISM extinction and IGM attenuation to the input template
+spectrum. Scales the full spectrum so that the flux at
+<span class="math">\(\lambda = \lambda_{M^*}\)</span> is the flux randomly
+assigned from the cumulative LF. This is done using the average
+flux within a range <span class="math">\(\pm 50 \unicode{x212B}\)</span> from
+<span class="math">\(\lambda_{M^*}\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plotcheck</strong> (<em>Optional[bool]</em>) &#8211; Set to <code class="docutils literal"><span class="pre">True</span></code> to plot the spectrum
+at each stage as a check. Default is <code class="docutils literal"><span class="pre">False</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing:<blockquote>
+<div>wave (float): Wavelength array<p>outflux (float): Flux array</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(tuple)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.source.Source.read_template">
+<code class="descname">read_template</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source.read_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in the BC03 template to get the spectrum for the given age.</p>
+<p>The source template is chosen via <a class="reference internal" href="#synthsrc.source.Source.choose_template" title="synthsrc.source.Source.choose_template"><code class="xref py py-func docutils literal"><span class="pre">choose_template()</span></code></a>, and
+the age is assigned by <a class="reference internal" href="#synthsrc.source.Source.generate_properties" title="synthsrc.source.Source.generate_properties"><code class="xref py py-func docutils literal"><span class="pre">generate_properties()</span></code></a>. Emission
+lines are added via <a class="reference internal" href="#synthsrc.source.Source.add_emission_lines" title="synthsrc.source.Source.add_emission_lines"><code class="xref py py-func docutils literal"><span class="pre">add_emission_lines()</span></code></a> if
+<code class="xref py py-attr docutils literal"><span class="pre">Source.add_lines</span></code> is <code class="docutils literal"><span class="pre">True</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple containing:<blockquote>
+<div>wave_array (float): Wavelength array<p>flux (float): Flux array</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(tuple)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lfs.html" class="btn btn-neutral float-right" title="lfs module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="catalog.html" class="btn btn-neutral" title="catalog module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Micaela Bagley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

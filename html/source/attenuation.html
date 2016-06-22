@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>attenuation module &mdash; synthsrc 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="synthsrc 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="templates module" href="templates.html"/>
+        <link rel="prev" title="lfs module" href="lfs.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> synthsrc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="catalog.html">catalog module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">synthsrc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lfs.html">lfs module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">attenuation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">templates module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">synthsrc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>attenuation module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/attenuation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-synthsrc.attenuation">
+<span id="attenuation-module"></span><h1>attenuation module<a class="headerlink" href="#module-synthsrc.attenuation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="synthsrc.attenuation.IGMAttenuation">
+<em class="property">class </em><code class="descclassname">synthsrc.attenuation.</code><code class="descname">IGMAttenuation</code><a class="headerlink" href="#synthsrc.attenuation.IGMAttenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class to calculate and apply attenuation from the intergalactic medium.</p>
+<dl class="method">
+<dt id="synthsrc.attenuation.IGMAttenuation.inoue">
+<code class="descname">inoue</code><span class="sig-paren">(</span><em>wave</em>, <em>zz</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.IGMAttenuation.inoue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates IGM attenuation following <a class="reference external" href="http://adsabs.harvard.edu/abs/2014MNRAS.442.1805I">Inoue et al. (2014)</a>.</p>
+<p>The attenuation by the intergalactic medium is taken from the
+analytic model of Inoue et al. (2014), which is preferred over
+Madau (1995) because they inlcude more Lyman series lines, the
+contribution from damped Lyman-alpha systems, and a better
+treatment of the Lyman continuum.</p>
+<p><a class="reference internal" href="#synthsrc.attenuation.IGMAttenuation.inoue" title="synthsrc.attenuation.IGMAttenuation.inoue"><code class="xref py py-func docutils literal"><span class="pre">inoue()</span></code></a> requires <code class="docutils literal"><span class="pre">inoue_coeffs.dat</span></code>, which can be found
+in <code class="docutils literal"><span class="pre">synthsrc/requiredfiles</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Array of wavelength values</li>
+<li><strong>zz</strong> (<em>float</em>) &#8211; Redshift of source, z NOT (1+z)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ext</strong> &#8211; The absorption array, <span class="math">\(e^{-\tau^{IGM}_{\lambda_{obs}}}\)</span></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="synthsrc.attenuation.ISMExtinction">
+<em class="property">class </em><code class="descclassname">synthsrc.attenuation.</code><code class="descname">ISMExtinction</code><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class to calculate and apply extinction from the interstellar medium.</p>
+<p>Options are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.calz" title="synthsrc.attenuation.ISMExtinction.calz"><code class="xref py py-func docutils literal"><span class="pre">calz()</span></code></a> - Calzetti et al. (2000)</li>
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.ccm" title="synthsrc.attenuation.ISMExtinction.ccm"><code class="xref py py-func docutils literal"><span class="pre">ccm()</span></code></a> - <a href="#id1"><span class="problematic" id="id2">`</span></a>Cardelli, Clayton, and Mathis (1989)</li>
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.allen" title="synthsrc.attenuation.ISMExtinction.allen"><code class="xref py py-func docutils literal"><span class="pre">allen()</span></code></a> - Allen (1976)</li>
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.prevot" title="synthsrc.attenuation.ISMExtinction.prevot"><code class="xref py py-func docutils literal"><span class="pre">prevot()</span></code></a> - Prevot et al. (1984)</li>
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.seaton" title="synthsrc.attenuation.ISMExtinction.seaton"><code class="xref py py-func docutils literal"><span class="pre">seaton()</span></code></a> - Seaton (1979)</li>
+<li><a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.fitz" title="synthsrc.attenuation.ISMExtinction.fitz"><code class="xref py py-func docutils literal"><span class="pre">fitz()</span></code></a> - Fitzpatrick (1986)</li>
+</ul>
+<p>For all reddening laws, supplying a negative ebv will deredden fluxes.</p>
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.allen">
+<code class="descname">allen</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>ebv</em>, <em>RV=3.1</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.allen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law from <a class="reference external" href="http://adsabs.harvard.edu/abs/1976asqu.book.....A">Allen (1976)</a>.</p>
+<p>The reddening law:</p>
+<div class="math">
+\[\frac{A_{\lambda}}{A_V} = \frac{k_{\lambda}}{R_V}\]</div>
+<p>is taken from a table of absorption from 0.1 to 10 <span class="math">\(\mu m\)</span>
+in the bands U, B, V and I. The absorption <span class="math">\(A_{\lambda}\)</span>
+is normalized to <span class="math">\(A_V = 1.0\)</span>.</p>
+<p>Interpolation is required for wavelengths between those in
+the table. Extrapolation for longer and shorter wavelengths
+in not implemented at this time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V).</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 3.1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the Allen law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.calz">
+<code class="descname">calz</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>ebv</em>, <em>RV=4.05</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.calz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law for starburst galaxies from <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJ...533..682C">Calzetti
+et al. (2000)</a>.</p>
+<p>The Calzetti law is valid for galaxy spectra where massive stars
+dominate the radiation output and between 0.12 and 2.2
+<span class="math">\(\mu m\)</span>.
+<a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.calz" title="synthsrc.attenuation.ISMExtinction.calz"><code class="xref py py-func docutils literal"><span class="pre">calz()</span></code></a> is based on the IDL procedure <code class="xref py py-func docutils literal"><span class="pre">CALZ_UNRED()</span></code>
+written by W. Landsman, which extrapolates between 0.12 and 0.0912
+<span class="math">\(\mu m\)</span>. Here, the wavelength range is extended below 0.0912.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V). Should be that derived for
+the stellar continuum, <span class="math">\(E(B-V)_{stars}\)</span>, which is
+related to the reddening derived from the gas,
+<span class="math">\(E(B-V)_{gas}\)</span>, via the Balmer decrement:
+<span class="math">\(E(B-V)_{stars} = 0.44 * E(B-V)_{gas}\)</span>.</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 4.05</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the Calzetti law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.ccm">
+<code class="descname">ccm</code><span class="sig-paren">(</span><em>wave</em>, <em>tauV</em>, <em>RV=3.1</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.ccm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law from <a class="reference external" href="http://adsabs.harvard.edu/abs/1989ApJ...345..245C">Cardelli, Clayton, and Mathis (1989)</a>.</p>
+<p>The reddening law includes the update for the near-UV given by
+<a class="reference external" href="http://adsabs.harvard.edu/abs/1994ApJ...422..158O">O&#8217;Donnell (1994)</a>.
+<a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.ccm" title="synthsrc.attenuation.ISMExtinction.ccm"><code class="xref py py-func docutils literal"><span class="pre">ccm()</span></code></a> is based on the IDL procedure <code class="xref py py-func docutils literal"><span class="pre">CCM_UNRED()</span></code>
+written by W. Landsman.
+Parameterization is valid from the far-UV to the IR
+(0.1 to 3.5 <span class="math">\(\mu m\)</span>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V).</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 3.1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the CCM law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.extrap1d_linear">
+<code class="descname">extrap1d_linear</code><span class="sig-paren">(</span><em>interpolator</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.extrap1d_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform linear extrapolation using the closest points.</p>
+<p>Linearly extrapolate values outside the range defined for
+interpolation by using the slope of the line connecting
+the two closest points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>interpolator</strong> &#8211; An interpolation function, such as
+<code class="xref py py-func docutils literal"><span class="pre">scipy.interpolation.interp1d()</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A function which can also extrapolate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.extrap1d_linefit">
+<code class="descname">extrap1d_linefit</code><span class="sig-paren">(</span><em>interpolator</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.extrap1d_linefit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform linear extrapolation using the slope fit to all points.</p>
+<p>Linearly extrapolate values outside the range defined for
+interpolation by using the slope of a line fit to all points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>interpolator</strong> &#8211; An interpolation function, such as
+<code class="xref py py-func docutils literal"><span class="pre">scipy.interpolation.interp1d()</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A function which can also extrapolate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.fitz">
+<code class="descname">fitz</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>ebv</em>, <em>RV=3.1</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.fitz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law for the LMC from <a class="reference external" href="http://adsabs.harvard.edu/abs/1986AJ.....92.1068F">Fitzpatrick (1986)</a>.</p>
+<p>The reddening law is published as:</p>
+<div class="math">
+\[\frac{E(\lambda - V)}{E(B-V)} = (\frac{A_{\lambda}}{A_V} - 1)*R_V,\]</div>
+<p>and is valid for <span class="math">\(x &lt; 8.3 \mu m^{-1}\)</span>
+(<span class="math">\(\lambda &gt; 0.12 \mu m\)</span>). Extrapolation at shorter
+wavelengths is not implemented at this time.
+At wavelengths longer than <span class="math">\(0.333 \mu m\)</span>, the points
+from <a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.allen" title="synthsrc.attenuation.ISMExtinction.allen"><code class="xref py py-func docutils literal"><span class="pre">allen()</span></code></a> are adopted to avoid <span class="math">\(k_{\lambda}\)</span>
+being too flat in the red and near-IR regions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V).</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 3.1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the Fitzpatrick law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.plot_ext_laws">
+<code class="descname">plot_ext_laws</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.plot_ext_laws" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.prevot">
+<code class="descname">prevot</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>ebv</em>, <em>RV=2.72</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.prevot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law for the SMC from <a class="reference external" href="http://adsabs.harvard.edu/abs/1984A%26A...132..389P">Prevot et al. (1984)</a>.</p>
+<p>The reddening law is published as:</p>
+<div class="math">
+\[\frac{E(\lambda - V)}{E(B-V)} = (\frac{A_{\lambda}}{A_V} - 1)*R_V,\]</div>
+<p>and is valid from 0.1275 - 0.32 <span class="math">\(\mu m\)</span> (B and V).
+Values for <span class="math">\(\lambda &gt; 0.32\mu m\)</span> (for U, J, H and K) are
+taken from <a class="reference external" href="http://adsabs.harvard.edu/abs/1985A%26A...149..330B">Bouchet et al. (1985)</a>.</p>
+<p>Interpolation is required for wavelengths in between those in
+Prevot&#8217;s table. Extrapolation is needed at shorter wavelengths
+to cover Ly <span class="math">\(\alpha\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V).</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 2.72</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the Prevot law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.seaton">
+<code class="descname">seaton</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>ebv</em>, <em>RV=3.1</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.seaton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the reddening law for the MW from <a class="reference external" href="http://adsabs.harvard.edu/abs/1979MNRAS.187P..73S">Seaton (1979)</a></p>
+<p>The reddening law is published as:</p>
+<div class="math">
+\[\frac{E(\lambda - V)}{E(B-V)} = (\frac{A_{\lambda}}{A_V} - 1)*R_V,\]</div>
+<p>and is valid for <span class="math">\(x &lt; 8.3 \mu m^{-1}\)</span>
+(<span class="math">\(\lambda &gt; 0.12 \mu m\)</span>). Extrapolation at shorter
+wavelengths is not implemented at this time.
+At wavelengths longer than <span class="math">\(0.365 \mu m\)</span>, the points
+from <a class="reference internal" href="#synthsrc.attenuation.ISMExtinction.allen" title="synthsrc.attenuation.ISMExtinction.allen"><code class="xref py py-func docutils literal"><span class="pre">allen()</span></code></a> are adopted to avoid <span class="math">\(k_{\lambda}\)</span>
+being too flat in the red and near-IR regions. The reddening
+law used here is as fit by <a class="reference external" href="http://adsabs.harvard.edu/abs/1986AJ.....92.1068F">Fitzpatrick (1986)</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Wavelength array in Angstroms</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array</li>
+<li><strong>ebv</strong> (<em>float</em>) &#8211; Color excess, E(B-V).</li>
+<li><strong>RV</strong> (<em>Optional[float]</em>) &#8211; Ratio of total selection extinction.
+Defaults to 3.1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>reddenedflux</strong> &#8211; Spectrum reddened according to the Seaton law.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.attenuation.ISMExtinction.wild">
+<code class="descname">wild</code><span class="sig-paren">(</span><em>wave</em>, <em>sSFR=0</em>, <em>mu=0</em>, <em>RV_st=0</em>, <em>RV_neb=3.707</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.attenuation.ISMExtinction.wild" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="templates.html" class="btn btn-neutral float-right" title="templates module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lfs.html" class="btn btn-neutral" title="lfs module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Micaela Bagley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

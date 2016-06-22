@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>catalog module &mdash; synthsrc 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="synthsrc 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="synthsrc module" href="source.html"/>
+        <link rel="prev" title="Welcome to synthsrc’s documentation!" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> synthsrc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">catalog module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">synthsrc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lfs.html">lfs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attenuation.html">attenuation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">templates module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">synthsrc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>catalog module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/catalog.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-synthsrc.catalog">
+<span id="catalog-module"></span><h1>catalog module<a class="headerlink" href="#module-synthsrc.catalog" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="synthsrc.catalog.Catalog">
+<em class="property">class </em><code class="descclassname">synthsrc.catalog.</code><code class="descname">Catalog</code><span class="sig-paren">(</span><em>nsrc</em>, <em>add_lines</em>, <em>outdir='.'</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.catalog.Catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class to build a catalog of synthetic photometry.</p>
+<p>some stuff</p>
+<p>Two directories will be created in <code class="xref py py-attr docutils literal"><span class="pre">outdir</span></code>: <code class="docutils literal"><span class="pre">outputs</span></code>,
+which will contain the output catalog and logfile, and <code class="docutils literal"><span class="pre">plots</span></code>,
+which will contain plots of the redshift distribution, color-color
+diagram, and selection window diagnostics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nsrc</strong> (<em>int</em>) &#8211; Number of synthetic sources to create</li>
+<li><strong>add_lines</strong> (<em>bool</em>) &#8211; If True, emission lines will be added to the spectra
+of the sources.</li>
+<li><strong>outdir</strong> (<em>Optional[str]</em>) &#8211; Directory for simulation outputs (catalogs
+and plots). Defaults to current working directory.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="synthsrc.catalog.Catalog.build_catalog">
+<code class="descname">build_catalog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.catalog.Catalog.build_catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the catalog of synthetic photometry.</p>
+<p>All physical parameters are assigned by the <code class="xref py py-class docutils literal"><span class="pre">Source</span></code> class.
+<code class="xref py py-func docutils literal"><span class="pre">Filter.calc_synphot()</span></code> converts the synthetic spectrum into
+flux densities in each filter. These in turn are converted into
+AB magnitudes. The output is output in both FITS and ascii
+formats in the <code class="docutils literal"><span class="pre">outputs</span></code> directory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.catalog.Catalog.generate_redshifts">
+<code class="descname">generate_redshifts</code><span class="sig-paren">(</span><em>nsrc</em>, <em>lowz=0.1</em>, <em>highz=8.5</em>, <em>plotdist=True</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.catalog.Catalog.generate_redshifts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a flat redshift distribution of sources in range lowz &lt; z &lt; highz.</p>
+<p>Redshifts are pulled from a uniform distribution using
+<code class="xref py py-func docutils literal"><span class="pre">numpy.random.uniform()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nsrc</strong> (<em>int</em>) &#8211; Number of sources</li>
+<li><strong>lowz</strong> (<em>Optional[float]</em>) &#8211; Lower redshift of distribution.
+Defaults to 0.1</li>
+<li><strong>highz</strong> (<em>Optional[float]</em>) &#8211; Upper redshift of distribution.
+Defaults to 8.5</li>
+<li><strong>plotdist</strong> (<em>Optional[bool]</em>) &#8211; If true, plots the generated
+distribution as a histogram and saves to <code class="docutils literal"><span class="pre">plots/zdist.pdf</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>zz</strong> &#8211; Array of randomly generated redshifts.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.catalog.Catalog.get_luminosity_functions">
+<code class="descname">get_luminosity_functions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.catalog.Catalog.get_luminosity_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates instances of the LFs appropriate for each redshift range.</p>
+<p>The luminosity of each source is pulled randomly from the
+appropriate luminosity function. In each redshift range,
+the cumulative LF is calculated by integrating the LF from
+<span class="math">\(10L^*\)</span> down to the luminosity corresponding to the
+<span class="math">\(1\sigma\)</span> magnitude limit of our survey.
+The magnitude limits are the median <span class="math">\(1\sigma\)</span> limits in
+the filters covering the LFs&#8217; characteristic wavelengths
+in the redshift ranges.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="synthsrc.catalog.main">
+<code class="descclassname">synthsrc.catalog.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.catalog.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="source.html" class="btn btn-neutral float-right" title="synthsrc module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to synthsrc’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Micaela Bagley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
