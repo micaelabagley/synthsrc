@@ -1,0 +1,7 @@
+window3 module
+==============
+
+.. automodule:: window3
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>templates module &mdash; synthsrc 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="synthsrc 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="utils module" href="utils.html"/>
+        <link rel="prev" title="attenuation module" href="attenuation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> synthsrc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="catalog.html">catalog module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">synthsrc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lfs.html">lfs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attenuation.html">attenuation module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">templates module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">synthsrc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>templates module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/templates.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-synthsrc.templates">
+<span id="templates-module"></span><h1>templates module<a class="headerlink" href="#module-synthsrc.templates" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="synthsrc.templates.Filter">
+<em class="property">class </em><code class="descclassname">synthsrc.templates.</code><code class="descname">Filter</code><span class="sig-paren">(</span><em>wave_array</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class to define a broadband filter curve.</p>
+<p>The filter transmission curve is read in, normalized, and interpolated
+onto a finer-resolution wavelength array.
+In <code class="xref py py-meth docutils literal"><span class="pre">synthsrc.Filter.calc_synphot()</span></code>, the spectrum is interpolated
+to the same wavelength array. The spectrum and all filters used in
+calcuating the broadband photometry therefore have the same wavelength
+resolution.</p>
+<p>Filter transmission curves are stored in the <code class="docutils literal"><span class="pre">synthsrc/filters</span></code>
+directory and are called <code class="docutils literal"><span class="pre">[filter].dat</span></code>. Available filters are:</p>
+<ul>
+<li><p class="first"><cite>HST</cite>/WFC3</p>
+<blockquote>
+<div><ul class="simple">
+<li>F606W</li>
+<li>F814W</li>
+<li>F110W</li>
+<li>F160W</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><cite>Spitzer</cite>/IRAC</p>
+<blockquote>
+<div><ul class="simple">
+<li>CH1, <span class="math">\(3.6 \mu m\)</span></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wave_array</strong> (<em>float</em>) &#8211; Wavelength array for interpolation of
+filters and SED templates</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="synthsrc.templates.Filter.calc_synphot">
+<code class="descname">calc_synphot</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em>, <em>redshift</em>, <em>filt</em>, <em>plotphot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Filter.calc_synphot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the flux density of a spectrum in a broad band filter.</p>
+<p>The mean flux density in a broad passband, <span class="math">\(P(\lambda)\)</span>,
+is defined as:</p>
+<div class="math">
+\[f_{\lambda}(P) = \frac{\int P_{\lambda} \ f_{\lambda} \ \lambda \ \mathrm{ d}\lambda}{\int P_{\lambda} \ \lambda \ \mathrm{ d}\lambda}\]</div>
+<p>The pivot wavelength of the filter is then:</p>
+<div class="math">
+\[\lambda_p(P) = \sqrt{\frac{\int P(\lambda) \lambda \mathrm{ d}\lambda}{\int P(\lambda) \mathrm{ d}\lambda / \lambda}}\]</div>
+<p>(See the <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/stsdas/synphot/SynphotManual.pdf">Synphot manual</a>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Rest frame wavelength array of spectrum</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Flux array of spectrum</li>
+<li><strong>redshift</strong> (<em>float</em>) &#8211; Source redshift</li>
+<li><strong>filt</strong> (<em>str</em>) &#8211; Filter ID</li>
+<li><strong>plotphot</strong> (<em>Optional[bool]</em>) &#8211; Option to plot and display the
+spectrum, filter transmission curve, and resulting
+photometry. Defaults to False.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pivot</strong> &#8211; The pivot wavelength of the filter
+flux_density (float): The mean flux density calculated for the broadband filter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.templates.Filter.interp_spectrum">
+<code class="descname">interp_spectrum</code><span class="sig-paren">(</span><em>wave</em>, <em>flux</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Filter.interp_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates spectrum to a finer resolution wavelength array.</p>
+<p>Values outside the range of the input wavelength array are
+set to zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wave</strong> (<em>float</em>) &#8211; Input wavelength array</li>
+<li><strong>flux</strong> (<em>float</em>) &#8211; Input flux array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Flux array interpolated onto higher-res wavelength array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.templates.Filter.plot_filters">
+<code class="descname">plot_filters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Filter.plot_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.templates.Filter.read_filt">
+<code class="descname">read_filt</code><span class="sig-paren">(</span><em>filt</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Filter.read_filt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in the filter transmission curve.</p>
+<p><a class="reference internal" href="#synthsrc.templates.Filter.read_filt" title="synthsrc.templates.Filter.read_filt"><code class="xref py py-func docutils literal"><span class="pre">read_filt()</span></code></a> normalizes the transmission curve and calls
+<a class="reference internal" href="#synthsrc.templates.Filter.interp_spectrum" title="synthsrc.templates.Filter.interp_spectrum"><code class="xref py py-func docutils literal"><span class="pre">interp_spectrum()</span></code></a> to interpolate it to a finer resolution
+wavelength array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filt</strong> (<em>str</em>) &#8211; Filter ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>transmission</strong> &#8211; Interpolated filter transmission curve</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="synthsrc.templates.Template">
+<em class="property">class </em><code class="descclassname">synthsrc.templates.</code><code class="descname">Template</code><a class="headerlink" href="#synthsrc.templates.Template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class to read in BC03 templates.</p>
+<p>BC03 templates are stored in the <code class="docutils literal"><span class="pre">synthsrc/highztemplates</span></code> directory
+and are called <code class="docutils literal"><span class="pre">[IMF]_[metal]_[SFH].fits</span></code>, where</p>
+<ul class="simple">
+<li>IMF is either <cite>salp</cite> or <cite>chab</cite> for Salpeter and Chabrier initial
+mass functions, respectively;</li>
+<li>metal is the metallicity ranging from <cite>m22</cite> to <cite>m62</cite> (solar);</li>
+<li>SFH is one of <cite>tau0p01</cite>, <cite>tau0p50</cite>, and <cite>tau5p00</cite>, for exponentially
+declining star formation histories with characteristic timescales
+of 0.01, 0.5, and 5 Gyr, respectively.</li>
+</ul>
+<dl class="method">
+<dt id="synthsrc.templates.Template.set_templates">
+<code class="descname">set_templates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.templates.Template.set_templates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in each template for easy access later.</p>
+<p>Each template FITS table is stored along with the number of
+ionizing photons created as a function of age (in the <code class="docutils literal"><span class="pre">*.3color</span></code>
+BC03 output files)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="attenuation.html" class="btn btn-neutral" title="attenuation module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Micaela Bagley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

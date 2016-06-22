@@ -1,0 +1,7 @@
+randomize module
+================
+
+.. automodule:: randomize
+    :members:
+    :undoc-members:
+    :show-inheritance:

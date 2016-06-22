@@ -1,0 +1,7 @@
+window2 module
+==============
+
+.. automodule:: window2
+    :members:
+    :undoc-members:
+    :show-inheritance:
