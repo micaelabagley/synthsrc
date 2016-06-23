@@ -98,7 +98,7 @@ class Catalog(object):
 #                   '7':[28.693,11534], '8':[27.696,15369]}
 
         for k,v in maglims.iteritems():
-            setattr(self, 'LF%s'%k, LuminosityFunction(k,v, self.logfile))
+            setattr(self, 'LF%s'%k, LuminosityFunction(k,v, log=self.logfile))
 
 
     def generate_redshifts(self, nsrc, lowz=0.1, highz=8.5, plotdist=True):

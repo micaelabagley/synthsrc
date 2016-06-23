@@ -20,15 +20,27 @@ class Cosmology(object):
             to 0.308
         omega_l (Optional[float]): Dark energy density parameter. 
             Defaults to 0.692
+        log (Optional[str]): Filename of optional logfile, for keeping
+            track of cosmology parameters used in calculating luminosity
+            distance, etc.
     """
 
-    def __init__(self, h=0.678, omega_m=0.308, omega_l=0.692):
+    def __init__(self, h=0.678, omega_m=0.308, omega_l=0.692, log=None):
         """Initializes the cosmology for use with cosmolopy.distance."""
         self.h = h
         self.omega_m = omega_m
         self.omega_l = omega_l
         cosmo = {'omega_M_0':self.omega_m, 'omega_lambda_0':self.omega_l, \
                  'h':self.h}
+
+        if log is not None:
+            f = open(log, 'a')
+            f.write('\nCosmological Parameters\n')
+            f.write('   Omega_M = %.2f\n' % self.omega_m)
+            f.write('   Omega_L = %.2f\n' % self.omega_l)
+            f.write('   h = %.2f\n' % self.h)
+            f.close()
+
         self.cosmo = cd.set_omega_k_0(cosmo)
 
 

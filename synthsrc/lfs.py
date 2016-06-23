@@ -25,15 +25,15 @@ class LuminosityFunction(object):
         zbase (int): Average or central redshift of redshift range.
             Determines which LF to use.
         maglim (float): Magnitude limit for use as faint integration limit.
-        logfile (Optional[str]): Filename of optional logfile, for keeping
+        log (Optional[str]): Filename of optional logfile, for keeping
             track of Schechter function parameters used in constructing 
             the cumulative LF.
     """    
 
-    def __init__(self, zbase, maglim, logfile=None):
+    def __init__(self, zbase, maglim, log=None):
         """Initializes the LuminosityFunction class."""
         self.zbase = int(zbase)
-        self.logfile = logfile
+        self.logfile = log
 
         self.reference = ''
         self.mst = 0.
