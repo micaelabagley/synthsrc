@@ -5,6 +5,7 @@
 
 Welcome to synthsrc's documentation!
 ====================================
+.. include:: ../README.rst
 
 Contents:
 
