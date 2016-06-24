@@ -2,7 +2,6 @@ import numpy as np
 from scipy import integrate, interpolate
 import matplotlib.pyplot as plt
 
-from utils import Cosmology
 from attenuation import *
 
 
@@ -30,10 +29,12 @@ class Source(object):
             :class:`~.templates.Template` 
         add_lines (bool): If ``True``, emission lines are added to the 
             spectrum using :func:`add_emission_lines`
+        cosmo (synthsrc.utils.Cosmology): Instance of 
+            :class:`~.utils.Cosmology`
 
     """
 
-    def __init__(self, z, LF, wave_array, temp, add_lines):
+    def __init__(self, z, LF, wave_array, temp, add_lines, cosmo):
         self.wave_array = wave_array
 
         # source properties
@@ -49,9 +50,6 @@ class Source(object):
         self.nclumps = 0
         self.tauv_clump = 0.
 
-        # set cosmology
-        cosmo = Cosmology()
-    
         # reading in BC03 templates
         self.temp = temp
         self.ages = self.temp.ages

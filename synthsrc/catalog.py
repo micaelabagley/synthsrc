@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from templates import *
 from lfs import LuminosityFunction
 from source import Source
+from utils import Cosmology
 
 
 class Catalog(object):
@@ -61,6 +62,10 @@ class Catalog(object):
         log.write('output: %s\n' % self.output)
         log.close()
 
+        # initialize cosmology
+        self.cosmo = Cosmology(h=0.7, omega_m=0.3, omega_l=0.7, 
+                               log=self.logfile)
+
         self.get_luminosity_functions()
         self.zz = self.generate_redshifts(nsrc, lowz=0.1, plotdist=True)
 
@@ -98,7 +103,8 @@ class Catalog(object):
 #                   '7':[28.693,11534], '8':[27.696,15369]}
 
         for k,v in maglims.iteritems():
-            setattr(self, 'LF%s'%k, LuminosityFunction(k,v, log=self.logfile))
+            setattr(self, 'LF%s'%k, LuminosityFunction(k,v, self.cosmo, 
+                                                       log=self.logfile))
 
 
     def generate_redshifts(self, nsrc, lowz=0.1, highz=8.5, plotdist=True):
@@ -175,35 +181,35 @@ class Catalog(object):
 
             if self.zz[i] < 1.5:
                 src = Source(self.zz[i], self.LF1, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 1.5) & (self.zz[i] < 2.7):
                 src = Source(self.zz[i], self.LF2, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 2.7) & (self.zz[i] < 3.4):
                 src = Source(self.zz[i], self.LF3, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 3.4) & (self.zz[i] < 4.5):
                 src = Source(self.zz[i], self.LF4, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 4.5) & (self.zz[i] < 5.5):
                 src = Source(self.zz[i], self.LF5, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 5.5) & (self.zz[i] < 6.5):
                 src = Source(self.zz[i], self.LF5, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 6.5) & (self.zz[i] < 7.5):
                 src = Source(self.zz[i], self.LF6, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             elif (self.zz[i] >= 7.5) & (self.zz[i] <= 8.5):
                 src = Source(self.zz[i], self.LF7, self.wave_array,
-                             self.temp, self.add_lines)
+                             self.temp, self.add_lines, self.cosmo)
 
             # extinguished, attenuated template flux scaled to src luminosity
             wave, flux = src.process()

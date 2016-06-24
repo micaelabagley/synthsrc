@@ -7,7 +7,7 @@ import ConfigParser
 import numpy as np
 from scipy import integrate, interpolate
 
-from utils import Cosmology, get_filesdir
+from utils import get_filesdir
 
 
 class LuminosityFunction(object):
@@ -25,14 +25,18 @@ class LuminosityFunction(object):
         zbase (int): Average or central redshift of redshift range.
             Determines which LF to use.
         maglim (float): Magnitude limit for use as faint integration limit.
+        cosmo (synthsrc.utils.Cosmology): Instance of 
+            :class:`~.utils.Cosmology`
         log (Optional[str]): Filename of optional logfile, for keeping
-            track of Schechter function parameters used in constructing 
-            the cumulative LF.
+            track of Schechter function parameters used in assigning
+            sources luminosities. 
+
     """    
 
-    def __init__(self, zbase, maglim, log=None):
+    def __init__(self, zbase, maglim, cosmo, log=None):
         """Initializes the LuminosityFunction class."""
         self.zbase = int(zbase)
+        self.cosmo = cosmo
         self.logfile = log
 
         self.reference = ''
@@ -69,8 +73,7 @@ class LuminosityFunction(object):
         Returns:
             llambda (float): 
         """
-        cosmo = Cosmology()
-        dlum = cosmo.get_lumdist(self.zbase)
+        dlum = self.cosmo.get_lumdist(self.zbase)
         pctocm = 3.0857e18
         mpctocm = 3.0857e24
         c = 2.99792e18
