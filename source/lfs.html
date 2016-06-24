@@ -136,7 +136,7 @@
 <span id="lfs-module"></span><h1>lfs module<a class="headerlink" href="#module-synthsrc.lfs" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="synthsrc.lfs.LuminosityFunction">
-<em class="property">class </em><code class="descclassname">synthsrc.lfs.</code><code class="descname">LuminosityFunction</code><span class="sig-paren">(</span><em>zbase</em>, <em>maglim</em>, <em>logfile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.lfs.LuminosityFunction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">synthsrc.lfs.</code><code class="descname">LuminosityFunction</code><span class="sig-paren">(</span><em>zbase</em>, <em>maglim</em>, <em>cosmo</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.lfs.LuminosityFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Class to calculate and initialize the luminosity function.</p>
 <p>The luminosity function is created from the Schechter paramters
@@ -153,9 +153,11 @@ typically the <span class="math">\(1\sigma\)</span> magnitude limit of our surve
 <li><strong>zbase</strong> (<em>int</em>) &#8211; Average or central redshift of redshift range.
 Determines which LF to use.</li>
 <li><strong>maglim</strong> (<em>float</em>) &#8211; Magnitude limit for use as faint integration limit.</li>
-<li><strong>logfile</strong> (<em>Optional[str]</em>) &#8211; Filename of optional logfile, for keeping
-track of Schechter function parameters used in constructing
-the cumulative LF.</li>
+<li><strong>cosmo</strong> (<a class="reference internal" href="utils.html#synthsrc.utils.Cosmology" title="synthsrc.utils.Cosmology"><em>synthsrc.utils.Cosmology</em></a>) &#8211; Instance of
+<a class="reference internal" href="utils.html#synthsrc.utils.Cosmology" title="synthsrc.utils.Cosmology"><code class="xref py py-class docutils literal"><span class="pre">Cosmology</span></code></a></li>
+<li><strong>log</strong> (<em>Optional[str]</em>) &#8211; Filename of optional logfile, for keeping
+track of Schechter function parameters used in assigning
+sources luminosities.</li>
 </ul>
 </td>
 </tr>

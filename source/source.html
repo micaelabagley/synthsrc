@@ -136,7 +136,7 @@
 <span id="synthsrc-module"></span><h1>synthsrc module<a class="headerlink" href="#module-synthsrc.source" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="synthsrc.source.Source">
-<em class="property">class </em><code class="descclassname">synthsrc.source.</code><code class="descname">Source</code><span class="sig-paren">(</span><em>z</em>, <em>LF</em>, <em>wave_array</em>, <em>temp</em>, <em>add_lines</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">synthsrc.source.</code><code class="descname">Source</code><span class="sig-paren">(</span><em>z</em>, <em>LF</em>, <em>wave_array</em>, <em>temp</em>, <em>add_lines</em>, <em>cosmo</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.source.Source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Class to generate the properties and spectrum of a synthetic source.</p>
 <p>The source is randomly assigned a BC03 spectral template
@@ -162,6 +162,8 @@ interpolation of the filters and SED</li>
 <a class="reference internal" href="templates.html#synthsrc.templates.Template" title="synthsrc.templates.Template"><code class="xref py py-class docutils literal"><span class="pre">Template</span></code></a></li>
 <li><strong>add_lines</strong> (<em>bool</em>) &#8211; If <code class="docutils literal"><span class="pre">True</span></code>, emission lines are added to the
 spectrum using <a class="reference internal" href="#synthsrc.source.Source.add_emission_lines" title="synthsrc.source.Source.add_emission_lines"><code class="xref py py-func docutils literal"><span class="pre">add_emission_lines()</span></code></a></li>
+<li><strong>cosmo</strong> (<a class="reference internal" href="utils.html#synthsrc.utils.Cosmology" title="synthsrc.utils.Cosmology"><em>synthsrc.utils.Cosmology</em></a>) &#8211; Instance of
+<a class="reference internal" href="utils.html#synthsrc.utils.Cosmology" title="synthsrc.utils.Cosmology"><code class="xref py py-class docutils literal"><span class="pre">Cosmology</span></code></a></li>
 </ul>
 </td>
 </tr>
