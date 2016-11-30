@@ -17,6 +17,7 @@ Contents:
    source/lfs.rst
    source/attenuation.rst
    source/templates.rst
+   source/randomize.rst
    source/utils.rst
 
 Indices and tables

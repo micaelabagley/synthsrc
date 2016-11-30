@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>utils module &mdash; synthsrc 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="synthsrc 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="utils module" href="utils.html"/>
+        <link rel="prev" title="templates module" href="templates.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> synthsrc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="catalog.html">catalog module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">synthsrc module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lfs.html">lfs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attenuation.html">attenuation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">templates module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">synthsrc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>utils module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/randomize.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-synthsrc.randomize">
+<span id="utils-module"></span><h1>utils module<a class="headerlink" href="#module-synthsrc.randomize" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="synthsrc.randomize.RandomCatalog">
+<em class="property">class </em><code class="descclassname">synthsrc.randomize.</code><code class="descname">RandomCatalog</code><span class="sig-paren">(</span><em>outfits</em>, <em>sig</em>, <em>nrealz</em>, <em>randcat</em>, <em>phottype</em>, <em>limtype</em>, <em>plotsdir</em>, <em>wispcat</em>, <em>makeplot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class to create random realizations of the synthetic catalog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>phottype</strong> (<em>str</em>) &#8211; </li>
+<li><strong>limtype</strong> (<em>Optional[str]</em>) &#8211; </li>
+<li><strong>wispcat</strong> (<em>Optional[str]</em>) &#8211; </li>
+<li><strong>makeplot</strong> (<em>Optional[str]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.bin_errors">
+<code class="descname">bin_errors</code><span class="sig-paren">(</span><em>filt</em>, <em>c=None</em>, <em>ax=None</em>, <em>makeplot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.bin_errors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.get_catalog_magnitudes">
+<code class="descname">get_catalog_magnitudes</code><span class="sig-paren">(</span><em>filt</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.get_catalog_magnitudes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in photometry and uncertainties from WISP catalog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filt</strong> (<em>float</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple containing:<blockquote>
+<div>mag (float):<p>emag (float):</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(tuple)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.get_maglimits">
+<code class="descname">get_maglimits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.get_maglimits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets magnitude limits in WFC3 filters for the WISP survey.</p>
+<p>Magnitude limits are measured by dropping random circular
+apertures on the background in each WISP image and fitting
+Gaussians to the distributions of fluxes.
+These values are currently hard-coded.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="23%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filter</th>
+<th class="head">zeropoint</th>
+<th class="head">min</th>
+<th class="head">max</th>
+<th class="head">median</th>
+<th class="head">mean</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>F606W</td>
+<td>26.0691</td>
+<td>0.1078</td>
+<td>0.1916</td>
+<td>0.1491</td>
+<td>0.1463</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td>28.488</td>
+<td>27.863</td>
+<td>28.135</td>
+<td>28.156</td>
+</tr>
+<tr class="row-even"><td>F814W</td>
+<td>25.0985</td>
+<td>0.0710</td>
+<td>0.1260</td>
+<td>0.0935</td>
+<td>0.0945</td>
+</tr>
+<tr class="row-odd"><td>F110W</td>
+<td>26.8223</td>
+<td>0.1786</td>
+<td>0.3666</td>
+<td>0.2518</td>
+<td>0.2553</td>
+</tr>
+<tr class="row-even"><td>F160W</td>
+<td>25.9463</td>
+<td>0.1995</td>
+<td>0.3266</td>
+<td>0.2570</td>
+<td>0.2571</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">tuple containing:<blockquote>
+<div>ml (dict):
+magdict (dict):
+zps (dict):</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(tuple)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.plot_errors">
+<code class="descname">plot_errors</code><span class="sig-paren">(</span><em>mag</em>, <em>emag</em>, <em>mederr</em>, <em>std</em>, <em>c</em>, <em>filt</em>, <em>ax</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.plot_errors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.randomize_catalog">
+<code class="descname">randomize_catalog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.randomize_catalog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="synthsrc.randomize.RandomCatalog.reject_outliers">
+<code class="descname">reject_outliers</code><span class="sig-paren">(</span><em>data</em>, <em>m=3</em><span class="sig-paren">)</span><a class="headerlink" href="#synthsrc.randomize.RandomCatalog.reject_outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reject outliers from a data set using sigma clipping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>float</em>) &#8211; Data array</li>
+<li><strong>m</strong> (<em>Optional[int]</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> &#8211; Data array clipped</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="templates.html" class="btn btn-neutral" title="templates module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Micaela Bagley.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
