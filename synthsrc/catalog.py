@@ -2,7 +2,6 @@
 import os
 from glob import glob
 import argcomplete, argparse
-from datetime import datetime
 import numpy as np
 from astropy.io import ascii
 from astropy.table import Table
@@ -32,35 +31,14 @@ class Catalog(object):
             and plots). Defaults to current working directory.
     """
 
-    def __init__(self, nsrc, add_lines, outdir='.'):
+    def __init__(self, nsrc, add_lines, outfits, outdat, logfile):
         """Initializes the Catalog class."""
         self.nsrc = nsrc
         self.add_lines = add_lines
-        self.outputs = os.path.join(outdir, 'outputs')
-        self.plots = os.path.join(outdir, 'plots')
-        # create outputs and plots if necessary
-        if not os.path.exists(self.outputs):
-            os.mkdir(self.outputs)
-        if not os.path.exists(self.plots):
-            os.mkdir(self.plots)
 
-        self.output = os.path.join(self.outputs, 'synthcat_%i'%nsrc)
-
-        if len(glob('%s.fits' % self.output)) != 0:
-            today = datetime.today()
-            date = '_%i.%i.%i' % (today.month,today.day,today.year)
-            time = '%i.%i.%i' % (today.hour, today.minute, today.second)
-            out = date + '-' + time
-            self.output = os.path.splitext(self.output)[0] + out
-
-        print 'Output: %s' % self.output
-
-        # logfile
-        self.logfile = os.path.splitext(self.output)[0] + '.log'
-        log = open(self.logfile, 'w')
-        log.write('synthcat\n========\n\n%i sources\n' % nsrc)
-        log.write('output: %s\n' % self.output)
-        log.close()
+        self.outfits = outfits
+        self.outdat = outdat
+        self.logfile = logfile
 
         # initialize cosmology
         self.cosmo = Cosmology(h=0.7, omega_m=0.3, omega_l=0.7, 
@@ -94,9 +72,9 @@ class Catalog(object):
         in the redshift ranges. 
         """
         # median maglims
-        maglims = {'1':[27.672,8024], '2':[28.135,5887], '3':[28.135,5887], \
-                   '4':[27.672,8024], '5':[28.320,11534], '6':[28.320,11534], \
-                   '7':[28.320,11534], '8':[27.422,15369]}
+        maglims = {'0':[27.672,8024], '1':[27.672,8024], '2':[28.135,5887], \
+                   '3':[28.135,5887], '4':[27.672,8024], '5':[28.320,11534], \
+                   '6':[28.320,11534], '7':[28.320,11534], '8':[27.422,15369]}
         # max maglims
 #        maglims = {'1':[27.971,8024], '2':[28.488,5887], '3':[28.488,5887], \
 #                   '4':[27.971,8024], '5':[28.693,11534], '6':[28.693,11534], \
@@ -228,8 +206,8 @@ class Catalog(object):
                        src.extstr, src.nclumps, src.ebv, src.tauv_clump,
                        mag[0], mag[1], mag[2], mag[3], mag[4]])
 
-    
-        t.write(self.output+'.fits', format='fits')
+        t.sort('z')    
+        t.write(self.outfits, format='fits')
 
         t['z'].format = '{:.3f}'
         t['Lst'].format = '{:.3e}'
@@ -242,8 +220,8 @@ class Catalog(object):
         t['m160'].format = '{:.3f}'
         t['irac_ch1'].format = '{:.3f}'
 
-        ascii.write(t, output=self.output+'.dat', 
-                    format='fixed_width_two_line', position_char='=')
+        ascii.write(t, output=self.outdat, format='fixed_width_two_line',
+                    position_char='=')
 
 
 def main():

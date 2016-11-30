@@ -73,6 +73,8 @@ class LuminosityFunction(object):
         Returns:
             llambda (float): 
         """
+        if self.zbase == 0:
+            self.zbase = 0.5
         dlum = self.cosmo.get_lumdist(self.zbase)
         pctocm = 3.0857e18
         mpctocm = 3.0857e24
