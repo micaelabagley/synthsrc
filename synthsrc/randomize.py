@@ -12,10 +12,21 @@ class RandomCatalog(object):
     """Class to create random realizations of the synthetic catalog.
 
     Args:
-        phottype (str):
-        limtype (Optional[str]):
-        wispcat (Optional[str]):
-        makeplot (Optional[str]):
+        outfits (str): Catalog of synthetic photometry in FITS table format
+        sig (float): Sigma to use for F814W S/N
+        nrealz (int): Number of random realizations of the catalog that 
+            will be generated.
+        randcat (str): Output filename of randomized catalog
+        phottype (str): Type of photometry to use. Options are 'APER', 
+            'AUTO' and 'ISO'
+        limtype (str): Type of limits to use when determining the limiting
+            magnitudes in each filter. Options are 'min', 'max', 'med',
+            and 'mean'
+        plotsdir (str): Directory for diagnostic plots
+        wispcat (Optional[str]): WISP catalog of photometry, from which to 
+            get errors
+        makeplot (Optional[bool]): Set to plot WISP photometric errors,
+            error bands as a function of magnitude
         
     """
     
@@ -71,6 +82,7 @@ class RandomCatalog(object):
         F814W   25.0985     0.0710  0.1260  0.0935  0.0945
         F110W   26.8223     0.1786  0.3666  0.2518  0.2553
         F160W   25.9463     0.1995  0.3266  0.2570  0.2571
+        ======  =========   ======  ======  ======  ======
         
         Returns:
             (tuple): tuple containing:
@@ -100,7 +112,7 @@ class RandomCatalog(object):
 
         Args:
             data (float): Data array
-            m (Optional[int]): 
+            m (Optional[int]): Sigma for clipping. Default is 3.
 
         Returns:
             data (float): Data array clipped 
@@ -115,14 +127,14 @@ class RandomCatalog(object):
         """Read in photometry and uncertainties from WISP catalog. 
 
         Args:
-            filt (float)
+            filt (str): Filter name
 
         Returns:
             (tuple): Tuple containing:
 
-                mag (float):
+                mag (float): array of cleaned magnitudes
             
-                emag (float):
+                emag (float): array of associated uncertainties.
         """
         mag = self.wispcat['MAG_%s_%s'%(self.phottype,filt)]
         emag = self.wispcat['MAGERR_%s_%s'%(self.phottype,filt)]
